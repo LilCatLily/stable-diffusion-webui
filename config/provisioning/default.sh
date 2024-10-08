@@ -20,6 +20,20 @@ PIP_PACKAGES=(
 )
 
 EXTENSIONS=(
+	"https://github.com/IDEA-Research/DWPose.git"
+	"https://github.com/Bing-su/adetailer.git"
+	"https://github.com/modelscope/facechain.git"
+	"https://github.com/adieyal/sd-dynamic-prompts.git"
+	"https://github.com/continue-revolution/sd-webui-animatediff.git"
+	"https://github.com/alemelis/sd-webui-ar.git"
+	"https://github.com/Mikubill/sd-webui-controlnet.git"
+	"https://github.com/Gourieff/sd-webui-reactor.git"
+	"https://github.com/hako-mikan/sd-webui-regional-prompter.git"
+	"https://github.com/civitai/sd_civitai_extension.git"
+	"https://github.com/w-e-w/stable-diffusion-webui-GPU-temperature-protection.git"
+	"https://github.com/toshiaki1729/stable-diffusion-webui-dataset-tag-editor.git"
+	"https://github.com/AlUlkesh/stable-diffusion-webui-images-browser.git"
+	"https://github.com/Coyote-A/ultimate-upscale-for-automatic1111.git"
     "https://github.com/Mikubill/sd-webui-controlnet"
     "https://github.com/deforum-art/sd-webui-deforum"
     "https://github.com/adieyal/sd-dynamic-prompts"
@@ -28,17 +42,25 @@ EXTENSIONS=(
     "https://github.com/hako-mikan/sd-webui-regional-prompter"
     "https://github.com/Coyote-A/ultimate-upscale-for-automatic1111"
     "https://github.com/Gourieff/sd-webui-reactor"
+    "https://github.com/civitai/sd_civitai_extension.git"
 )
 
 CHECKPOINT_MODELS=(
-    #"https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt"
-    #"https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/main/v2-1_768-ema-pruned.ckpt"
-    "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"
-    "https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors"
+    "https://civitai.com/api/download/models/443821?modelVersionId=912275"
+    "https://civitai.com/api/download/models/912275?type=Model&format=SafeTensor&size=pruned&fp=fp16"
+    "https://civitai.com/api/download/models/832353?type=Model&format=SafeTensor&size=pruned&fp=fp16"
+    "https://civitai.com/api/download/models/914390?type=Model&format=SafeTensor&size=full&fp=fp16"
 )
 
 LORA_MODELS=(
-    #"https://civitai.com/api/download/models/16576"
+    "https://civitai.com/api/download/models/518125?type=Model&format=SafeTensor"
+    "https://civitai.com/api/download/models/534756?type=Model&format=SafeTensor"
+    "https://civitai.com/api/download/models/534952?type=Model&format=SafeTensor"
+    "https://civitai.com/api/download/models/382152?type=Model&format=SafeTensor"
+    "https://civitai.com/api/download/models/721833?type=Model&format=SafeTensor"
+    "https://civitai.com/api/download/models/721630?type=Model&format=SafeTensor"
+    "https://civitai.com/api/download/models/722834?type=Model&format=SafeTensor"
+    "https://civitai.com/api/download/models/517898?type=Model&format=SafeTensor"
 )
 
 VAE_MODELS=(
@@ -48,31 +70,28 @@ VAE_MODELS=(
 )
 
 ESRGAN_MODELS=(
+    "https://civitai.com/api/download/models/164821?type=Model&format=PickleTensor"
     "https://huggingface.co/ai-forever/Real-ESRGAN/resolve/main/RealESRGAN_x4.pth"
     "https://huggingface.co/FacehugmanIII/4x_foolhardy_Remacri/resolve/main/4x_foolhardy_Remacri.pth"
     "https://huggingface.co/Akumetsu971/SD_Anime_Futuristic_Armor/resolve/main/4x_NMKD-Siax_200k.pth"
 )
 
 CONTROLNET_MODELS=(
-    "https://huggingface.co/lllyasviel/sd_control_collection/resolve/main/diffusers_xl_canny_mid.safetensors"
-    "https://huggingface.co/lllyasviel/sd_control_collection/resolve/main/diffusers_xl_depth_mid.safetensors?download"
-    "https://huggingface.co/lllyasviel/sd_control_collection/resolve/main/t2i-adapter_diffusers_xl_openpose.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_canny-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_depth-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_hed-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_mlsd-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_normal-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_openpose-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_scribble-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_seg-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_canny-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_color-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_depth-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_keypose-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_openpose-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_seg-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_sketch-fp16.safetensors"
-    #"https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/t2iadapter_style-fp16.safetensors"
+    "https://huggingface.co/bdsqlsz/qinglong_controlnet-lllite/blob/main/bdsqlsz_controlllite_xl_canny.safetensors"
+    "https://huggingface.co/bdsqlsz/qinglong_controlnet-lllite/blob/main/bdsqlsz_controlllite_xl_depth_V2.safetensors"
+    "https://huggingface.co/bdsqlsz/qinglong_controlnet-lllite/blob/main/bdsqlsz_controlllite_xl_dw_openpose.safetensors"
+    "https://huggingface.co/bdsqlsz/qinglong_controlnet-lllite/blob/main/bdsqlsz_controlllite_xl_lineart_anime_denoise.safetensors"
+    "https://huggingface.co/bdsqlsz/qinglong_controlnet-lllite/blob/main/bdsqlsz_controlllite_xl_mlsd_V2.safetensors"
+    "https://huggingface.co/bdsqlsz/qinglong_controlnet-lllite/blob/main/bdsqlsz_controlllite_xl_normal.safetensors"
+    "https://huggingface.co/bdsqlsz/qinglong_controlnet-lllite/blob/main/bdsqlsz_controlllite_xl_normal_dsine.safetensors"
+    "https://huggingface.co/bdsqlsz/qinglong_controlnet-lllite/blob/main/bdsqlsz_controlllite_xl_recolor_luminance.safetensors"
+    "https://huggingface.co/bdsqlsz/qinglong_controlnet-lllite/blob/main/bdsqlsz_controlllite_xl_segment_animeface_V2.safetensors"
+    "https://huggingface.co/bdsqlsz/qinglong_controlnet-lllite/blob/main/bdsqlsz_controlllite_xl_sketch.safetensors"
+    "https://huggingface.co/bdsqlsz/qinglong_controlnet-lllite/blob/main/bdsqlsz_controlllite_xl_softedge.safetensors"
+    "https://huggingface.co/bdsqlsz/qinglong_controlnet-lllite/blob/main/bdsqlsz_controlllite_xl_t2i-adapter_color_shuffle.safetensors"
+    "https://huggingface.co/bdsqlsz/qinglong_controlnet-lllite/blob/main/bdsqlsz_controlllite_xl_tile_anime_alpha.safetensors"
+    "https://huggingface.co/bdsqlsz/qinglong_controlnet-lllite/blob/main/bdsqlsz_controlllite_xl_tile_anime_beta.safetensors"
+    "https://huggingface.co/bdsqlsz/qinglong_controlnet-lllite/blob/main/bdsqlsz_controlllite_xl_tile_realistic.safetensors"
 )
 
 
