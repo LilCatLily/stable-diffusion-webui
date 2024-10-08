@@ -22,45 +22,33 @@ PIP_PACKAGES=(
 EXTENSIONS=(
 	"https://github.com/IDEA-Research/DWPose.git"
 	"https://github.com/Bing-su/adetailer.git"
-	"https://github.com/modelscope/facechain.git"
 	"https://github.com/adieyal/sd-dynamic-prompts.git"
 	"https://github.com/continue-revolution/sd-webui-animatediff.git"
 	"https://github.com/alemelis/sd-webui-ar.git"
 	"https://github.com/Mikubill/sd-webui-controlnet.git"
 	"https://github.com/Gourieff/sd-webui-reactor.git"
 	"https://github.com/hako-mikan/sd-webui-regional-prompter.git"
-	"https://github.com/civitai/sd_civitai_extension.git"
-	"https://github.com/w-e-w/stable-diffusion-webui-GPU-temperature-protection.git"
 	"https://github.com/toshiaki1729/stable-diffusion-webui-dataset-tag-editor.git"
 	"https://github.com/AlUlkesh/stable-diffusion-webui-images-browser.git"
 	"https://github.com/Coyote-A/ultimate-upscale-for-automatic1111.git"
-    "https://github.com/Mikubill/sd-webui-controlnet"
-    "https://github.com/deforum-art/sd-webui-deforum"
-    "https://github.com/adieyal/sd-dynamic-prompts"
-    "https://github.com/ototadana/sd-face-editor"
-    "https://github.com/AlUlkesh/stable-diffusion-webui-images-browser"
-    "https://github.com/hako-mikan/sd-webui-regional-prompter"
-    "https://github.com/Coyote-A/ultimate-upscale-for-automatic1111"
-    "https://github.com/Gourieff/sd-webui-reactor"
-    "https://github.com/civitai/sd_civitai_extension.git"
 )
 
 CHECKPOINT_MODELS=(
     "https://civitai.com/api/download/models/443821?modelVersionId=912275"
-    "https://civitai.com/api/download/models/912275?type=Model&format=SafeTensor&size=pruned&fp=fp16"
-    "https://civitai.com/api/download/models/832353?type=Model&format=SafeTensor&size=pruned&fp=fp16"
-    "https://civitai.com/api/download/models/914390?type=Model&format=SafeTensor&size=full&fp=fp16"
+    "https://civitai.com/api/download/models/912275"
+    "https://civitai.com/api/download/models/832353"
+    "https://civitai.com/api/download/models/914390"
 )
 
 LORA_MODELS=(
-    "https://civitai.com/api/download/models/518125?type=Model&format=SafeTensor"
-    "https://civitai.com/api/download/models/534756?type=Model&format=SafeTensor"
-    "https://civitai.com/api/download/models/534952?type=Model&format=SafeTensor"
-    "https://civitai.com/api/download/models/382152?type=Model&format=SafeTensor"
-    "https://civitai.com/api/download/models/721833?type=Model&format=SafeTensor"
-    "https://civitai.com/api/download/models/721630?type=Model&format=SafeTensor"
-    "https://civitai.com/api/download/models/722834?type=Model&format=SafeTensor"
-    "https://civitai.com/api/download/models/517898?type=Model&format=SafeTensor"
+    "https://civitai.com/api/download/models/518125"
+    "https://civitai.com/api/download/models/534756"
+    "https://civitai.com/api/download/models/534952"
+    "https://civitai.com/api/download/models/382152"
+    "https://civitai.com/api/download/models/721833"
+    "https://civitai.com/api/download/models/721630?"
+    "https://civitai.com/api/download/models/722834?"
+    "https://civitai.com/api/download/models/517898?"
 )
 
 VAE_MODELS=(
@@ -70,7 +58,7 @@ VAE_MODELS=(
 )
 
 ESRGAN_MODELS=(
-    "https://civitai.com/api/download/models/164821?type=Model&format=PickleTensor"
+    "https://civitai.com/api/download/models/164821"
     "https://huggingface.co/ai-forever/Real-ESRGAN/resolve/main/RealESRGAN_x4.pth"
     "https://huggingface.co/FacehugmanIII/4x_foolhardy_Remacri/resolve/main/4x_foolhardy_Remacri.pth"
     "https://huggingface.co/Akumetsu971/SD_Anime_Futuristic_Armor/resolve/main/4x_NMKD-Siax_200k.pth"
@@ -222,14 +210,21 @@ function provisioning_print_end() {
 function provisioning_download() {
     if [[ -n $HF_TOKEN && $1 =~ ^https://([a-zA-Z0-9_-]+\.)?huggingface\.co(/|$|\?) ]]; then
         auth_token="$HF_TOKEN"
+    
+        if [[ -n $auth_token ]];then
+            wget --header="Authorization: Bearer $auth_token" -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
+        else
+            wget -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
+        fi
     elif 
         [[ -n $CIVITAI_TOKEN && $1 =~ ^https://([a-zA-Z0-9_-]+\.)?civitai\.com(/|$|\?) ]]; then
         auth_token="$CIVITAI_TOKEN"
-    fi
-    if [[ -n $auth_token ]];then
-        wget --header="Authorization: Bearer $auth_token" -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
-    else
-        wget -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
+        
+        if [[ -n $auth_token ]];then
+            wget -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "${1}&token=${auth_token}"
+        else
+            wget -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
+        fi
     fi
 }
 
