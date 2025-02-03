@@ -20,6 +20,7 @@ PIP_PACKAGES=(
 )
 
 EXTENSIONS=(
+	"https://github.com/continue-revolution/sd-webui-animatediff.git"
 	"https://github.com/IDEA-Research/DWPose.git"
 	"https://github.com/Bing-su/adetailer.git"
 	"https://github.com/adieyal/sd-dynamic-prompts.git"
@@ -34,21 +35,39 @@ EXTENSIONS=(
 )
 
 CHECKPOINT_MODELS=(
-    "https://civitai.com/api/download/models/443821?modelVersionId=912275"
-    "https://civitai.com/api/download/models/912275"
+	# goddessOfRealism_gorPONYV4photoVAEB
+    "https://civitai.com/api/download/models/1087831"
+    # WAI-CUTE v8
+    "https://civitai.com/api/download/models/915200"
+    # realDream_sdxlPony12
     "https://civitai.com/api/download/models/832353"
+    # PonyRealism v2.2
     "https://civitai.com/api/download/models/914390"
 )
 
 LORA_MODELS=(
+	# YouthfulPonyXL_v1.safetensors
     "https://civitai.com/api/download/models/518125"
-    "https://civitai.com/api/download/models/534756"
-    "https://civitai.com/api/download/models/534952"
-    "https://civitai.com/api/download/models/382152"
-    "https://civitai.com/api/download/models/721833"
-    "https://civitai.com/api/download/models/721630?"
-    "https://civitai.com/api/download/models/722834?"
-    "https://civitai.com/api/download/models/517898?"
+    # AmateurStyle_v1_PONY_REALISM.safetensors
+	"https://civitai.com/api/download/models/534756"
+    # Breast Slider - Pony_alpha1.0_rank4_noxattn_last.safetensors
+	"https://civitai.com/api/download/models/534952"
+    # Expressive_H-000001.safetensors
+	"https://civitai.com/api/download/models/382152"
+    # Body Type Slider
+	"https://civitai.com/api/download/models/520909"
+    # Nipple Size Slider
+	"https://civitai.com/api/download/models/539244"
+    # Breast Sag Slider
+	"https://civitai.com/api/download/models/558128"
+    # Penis Size_alpha1.0_rank4_noxattn_last.safetensors
+	"https://civitai.com/api/download/models/517898"
+ 	# merged.2
+  	"https://civitai.com/api/download/models/1130128"
+   	# 580sE8-Mv2
+	"https://civitai.com/api/download/models/1242397"
+ 	# PonyRealism v2
+  	"https://civitai.com/api/download/models/1036607"
 )
 
 VAE_MODELS=(
